@@ -38,8 +38,13 @@ kind: Deployment
 apiVersion: app/v1
 metadata:
   name: iscsi-provisioner
+  labels:
+    app: iscsi-provisioner
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: iscsi-provisioner
   template:
     metadata:
       labels:
